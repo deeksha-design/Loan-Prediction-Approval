@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Loan PREDICTOR</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <style>
+    body {font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(to bottom, #D5DEE7 0%, #E8EBF2 50%, #E2E7ED 100%), linear-gradient(to bottom, rgba(0,0,0,0.02) 50%, rgba(255,255,255,0.02) 61%, rgba(0,0,0,0.02) 73%), linear-gradient(33deg, rgba(255,255,255,0.20) 0%, rgba(0,0,0,0.20) 100%);
+ background-blend-mode: normal,color-burn;
+      }
+    * {box-sizing: border-box;}
+
+    input[type=text], select, textarea, option {
+      width: 100%;
+      padding: 12px;
+      color:black;
+      opacity:0.8;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+    }
+    select{
+      color:black;
+      opacity: 0.8;
+    }
+    
+    input[type=submit] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+    }
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 5px;
+      }
+      .grid-item {
+        padding: 5px;
+        font-size: 15px;
+        text-align: center;
+      }
+      footer {
+        text-align: center;
+        padding: 3px;
+        background-color: grey;
+        color: white;
+      }
+
+
+    </style>
+ <div>
+   <br><br><br><br>
+	<h1><center>loan  PREDICTOR</center></h1>
+<br><br> 
+    <form action="{{ url_for('predict')}}"method="post">
+    <div class="grid-container">
+      <div class="grid-item">Gender
+        <select name="Gender" id="gender" required>
+          <option value="" selected disabled hidden>Select Gender</option>
+          <option value = 1>Male</option>
+          <option value = 0>Female</option>
+        </select>
+      </div>
+      <div class="grid-item">Married
+        <select name="Married" id="Married" required>
+          <option value="" selected disabled hidden>Select Married</option>
+          <option value = 1>Yes</option>
+          <option value = 0>NO</option>
+        </select>
+      </div>
+      <div class="grid-item">Dependents<input type="text" name="Dependents" placeholder="Enter Dependents" required="required" /></div>
+      <div class="grid-item">Education
+        <select name="Education" id="Education" required>
+          <option value="" selected disabled hidden>Select Gender</option>
+          <option value = 1>Graduate</option>
+          <option value = 0>not Graduate</option>
+        </select>
+      </div>
+      <div class="grid-item">Self Employed
+        <select name="Self Employed" id="Self Employed" required>
+          <option value="" selected disabled hidden>Select Employee status</option>
+          <option value = 1>Yes</option>
+          <option value = 0>No</option>
+        </select>
+      </div>
+      <div class="grid-item">Application Income<input type="text" name="Application Income" placeholder="Application Income" required="required" /></div>
+      <div class="grid-item">co Application Income<input type="text" name="co Application Income" placeholder="co Application Income" required="required" /></div>  
+      <div class="grid-item">Loan Amount<input type="text" name="Loan Amount" placeholder="Loan Amount" required="required" /></div>
+      <div class="grid-item">Loan Amount Term<input type="text" name="Loan Term" placeholder="Loan Amount term" required="required" /></div>
+      <div class="grid-item">Credit History
+        <select name="credit History" id="credit history" required>
+          <option value="" selected disabled hidden>Select credit history</option>
+          <option value = 1>Yes</option>
+          <option value = 0>No</option>
+        </select>
+      </div>
+      <div class="grid-item">property area
+        <select name="property area" id="property area" required>
+          <option value="" selected disabled hidden>Select property area</option>
+          <option value = 0>Rural</option>
+          <option value = 1>Semi urban</option>
+          <option value = 2>urban</option>
+        </select>
+      </div>
+    
+      
+
+
+    </div>
+   <br>
+   <button type="submit" class="btn btn-primary btn-lg btn-block">Predict</button>
+   
+  </form>
+  <br>
+</div>
+<footer>
+  <center>Copyright © 2021 All rights reserved | This website is made with diksha</center>
+</footer>
+ 
+
+</body>
+</html>
